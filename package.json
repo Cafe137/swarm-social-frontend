@@ -1,0 +1,23 @@
+{
+    "name": "swarm-social-frontend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "vite"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@upcoming/bee-js": "^0.2.0",
+        "cafe-utility": "^27.6.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^19.0.8",
+        "@types/react-dom": "^19.0.3",
+        "vite": "^6.0.11"
+    }
+}

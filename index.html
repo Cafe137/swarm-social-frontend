@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Swarm App</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            p,
+            h1,
+            h2 {
+                margin: 0;
+            }
+            h2 {
+                margin: 8px 16px;
+                font-size: 20px;
+            }
+            body {
+                font-family: -system-ui, sans-serif;
+                margin: 0;
+                padding: 32px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #e0e0e0;
+            }
+            #root {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+            }
+            section {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border-radius: 4px;
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+                background-color: #f0f0f0;
+                overflow: hidden;
+                min-width: 400px;
+            }
+            .section-body {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                background-color: #fff;
+                padding: 16px;
+            }
+            .vertical-center {
+                justify-content: center;
+                align-items: center;
+            }
+            textarea,
+            input {
+                font-family: -system-ui, sans-serif;
+                width: 100%;
+                padding: 4px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            button {
+                height: 40px;
+                padding-left: 16px;
+                padding-right: 16px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            button:hover {
+                background-color: #fff;
+                cursor: pointer;
+            }
+            .avatar {
+                width: 144px;
+                height: 144px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .avatar-small {
+                width: 40px;
+                height: 40px;
+            }
+            .hoverable {
+                cursor: pointer;
+            }
+            .post-body {
+                padding-left: 48px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="src/index.tsx"></script>
+    </body>
+</html>
