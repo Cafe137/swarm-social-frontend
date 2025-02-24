@@ -60,8 +60,8 @@ export function App() {
                     <p>{identity.publicKey().address().toHex()}</p>
                     <select onChange={e => setBatchId(new BatchId(e.target.value))}>
                         <option value="">Select Batch ID</option>
-                        {possibleBatchIds.map((id, index) => (
-                            <option key={index} value={id.toHex()}>
+                        {possibleBatchIds.map(id => (
+                            <option key={id.toHex()} value={id.toHex()}>
                                 {id.toHex()}
                             </option>
                         ))}
@@ -90,8 +90,8 @@ export function App() {
                 <div className="section-body">
                     {posts
                         .filter(x => x.toHex() !== '00'.repeat(32))
-                        .map((post, index) => (
-                            <Post key={index} reference={post} />
+                        .map(post => (
+                            <Post key={post.toHex()} reference={post} />
                         ))}
                 </div>
             </section>
