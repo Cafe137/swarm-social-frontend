@@ -3,15 +3,16 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "start": "vite"
+        "start": "vite",
+        "build": "vite build"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "@upcoming/bee-js": "^0.2.0",
-        "cafe-utility": "^27.6.0",
+        "@upcoming/bee-js": "^0.10.0",
+        "cafe-utility": "^27.12.1",
         "react": "^19.0.0",
         "react-dom": "^19.0.0"
     },
