@@ -1,9 +1,15 @@
-import { BatchId, NULL_ADDRESS, PrivateKey } from '@upcoming/bee-js'
+import { BatchId, Bee, NULL_ADDRESS, PrivateKey } from '@upcoming/bee-js'
 import { Binary } from 'cafe-utility'
-import { bee } from '../Bee'
 import { WRITER } from '../Consensus'
 
-export async function publish(batchId: BatchId, identity: PrivateKey, tip: Uint8Array, text?: string, image?: File) {
+export async function publish(
+    bee: Bee,
+    batchId: BatchId,
+    identity: PrivateKey,
+    tip: Uint8Array,
+    text?: string,
+    image?: File
+) {
     let textReference = new Uint8Array(32)
     let imageReference = new Uint8Array(32)
 
