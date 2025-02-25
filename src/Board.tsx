@@ -15,6 +15,7 @@ export function Board({ bee }: Props) {
     const [posts, setPosts] = useState<Reference[]>([])
     const [batchId, setBatchId] = useState<BatchId | null>(null)
     const [possibleBatchIds, setPossibleBatchIds] = useState<BatchId[]>([])
+    const [resetCounter, setResetCounter] = useState(0)
 
     const identity = new PrivateKey(localStorage.getItem('identity') || Strings.randomHex(64))
 
@@ -51,8 +52,23 @@ export function Board({ bee }: Props) {
             return
         }
 
-        await publish(bee, batchId, identity, posts[0].toUint8Array(), newPostText, newPostImage ?? undefined)
-        location.reload()
+        if (!newPostText && !newPostImage) {
+            alert('Please write a post or upload an image')
+            return
+        }
+
+        try {
+            await publish(bee, batchId, identity, posts[0].toUint8Array(), newPostText, newPostImage ?? undefined)
+
+            alert('Your post will be visible in the feed shortly')
+
+            setNewPostText('')
+            setNewPostImage(null)
+            setBatchId(null)
+            setResetCounter(x => x + 1)
+        } catch {
+            alert('Failed to publish the post, check console for more details')
+        }
     }
 
     return (
@@ -72,12 +88,13 @@ export function Board({ bee }: Props) {
                         onChange={e => setNewPostText(e.target.value)}
                     />
                     <input
+                        key={`image-${resetCounter}`}
                         className="borderless"
                         type="file"
                         accept="image/*"
                         onChange={e => setNewPostImage(e.target.files ? e.target.files[0] : null)}
                     />
-                    <select onChange={e => setBatchId(new BatchId(e.target.value))}>
+                    <select key={`select-${resetCounter}`} onChange={e => setBatchId(new BatchId(e.target.value))}>
                         <option value="">Select Batch ID</option>
                         {possibleBatchIds.map(id => (
                             <option key={id.toHex()} value={id.toHex()}>
